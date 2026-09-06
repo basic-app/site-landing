@@ -1,0 +1,35 @@
+<?php
+/**
+ * @author Basic App Dev Team
+ * @license MIT
+ */
+namespace BasicApp\SiteLanding\Database\Seeds;
+
+use BasicApp\Core\Seeder;
+use BasicApp\Admin\Settings\AdminSettings;
+
+class SiteLandingSeeder extends Seeder
+{
+    public function run()
+    {
+        service('settings')->setMany([
+            'AdminSettings.login' => 'admin',
+            'AdminSettings.password_hash' => AdminSettings::encodePassword('12345'),
+            'AdminSettings.appName' => 'Demo',
+            'SiteHero.title' => 'Welcome to Basic App',
+            'SiteHero.description' => 'A functional Bootstrap 5 boilerplate for one page scrolling websites',
+            'SiteHero.background_image_path' => 'assets/site-landing-sb/images/home-bg.jpg',
+            'SiteHero.background_image_original_name' => 'home-bg.jpg',
+            'SiteAbout.title' => 'About this page',
+            'SiteAbout.content_html' => '<p>This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs!</p>',
+            'SiteServices.title' => 'Services we offer',
+            'SiteServices.content_html' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>',
+            'SiteContactUs.title' => 'Contact us',
+            'SiteContactUs.content_html' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>',
+            'SiteSettings.title' => 'Title',
+            'SiteSettings.keywords' => 'Keywords',
+            'SiteSettings.description' => 'Description',
+            'SiteSettings.copyright' => '@My Company {Y}'
+        ]);
+    }
+}
