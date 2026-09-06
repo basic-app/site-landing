@@ -1,0 +1,9 @@
+{
+    "name": "basic-app/site-landing",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "BasicApp\\SiteLanding\\" : "src/"
+        }
+    }
+}
