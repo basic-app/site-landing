@@ -6,16 +6,12 @@
 namespace BasicApp\SiteLanding\Database\Seeds;
 
 use BasicApp\Core\Seeder;
-use BasicApp\Admin\Settings\AdminSettings;
 
-class SiteLandingSeeder extends Seeder
+class DemoSeeder extends Seeder
 {
     public function run()
     {
         service('settings')->setMany([
-            'AdminSettings.login' => 'admin',
-            'AdminSettings.password_hash' => AdminSettings::encodePassword('12345'),
-            'AdminSettings.appName' => 'Demo',
             'SiteHero.title' => 'Welcome to Basic App',
             'SiteHero.description' => 'A functional Bootstrap 5 boilerplate for one page scrolling websites',
             'SiteHero.background_image_path' => 'assets/site-landing-sb/images/home-bg.jpg',
