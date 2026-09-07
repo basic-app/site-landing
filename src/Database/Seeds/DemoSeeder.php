@@ -22,6 +22,7 @@ class DemoSeeder extends Seeder
             'SiteServices.content_html' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>',
             'SiteContactUs.title' => 'Contact us',
             'SiteContactUs.content_html' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>',
+            'SiteSettings.name' => 'Demo',
             'SiteSettings.title' => 'Title',
             'SiteSettings.keywords' => 'Keywords',
             'SiteSettings.description' => 'Description',
