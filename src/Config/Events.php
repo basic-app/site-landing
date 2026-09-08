@@ -29,24 +29,24 @@ AdminMenu::on(static function(AdminMenu $event) : void {
     $event->items[lang('Admin.Cells')]['site-hero'] = [
         'label' => lang('Admin.Site Hero'),
         'url' => site_url('admin/site-hero'),
-        'icon' => ['icon' => 'fa-tv']
+        'icon' => 'fa-tv'
     ];
 
     $event->items[lang('Admin.Cells')]['site-about'] = [
         'label' => lang('Admin.Site About'),
         'url' => site_url('admin/site-about'),
-        'icon' => ['icon' => 'fa-circle-info']
+        'icon' => 'fa-circle-info'
     ];
 
     $event->items[lang('Admin.Cells')]['site-services'] = [
         'label' => lang('Admin.Site Services'),
         'url' => site_url('admin/site-services'),
-        'icon' => ['icon' => 'fa-list']
+        'icon' => 'fa-list'
     ];
     
     $event->items[lang('Admin.Cells')]['site-contact-us'] = [
         'label' => lang('Admin.Site Contact Us'),
         'url' => site_url('admin/site-contact-us'),
-        'icon' => ['icon' => 'fa-regular fa-envelope']
+        'icon' => 'fa-regular fa-envelope'
     ];
 });
