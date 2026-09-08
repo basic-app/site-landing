@@ -12,6 +12,7 @@ class SiteHero extends SettingsEntity
 {
     protected $attributes = [
         'title' => null,
+        'description' => null,
         'background_image_path' => null,
         'background_image_original_name' => null
     ];
@@ -21,6 +22,10 @@ class SiteHero extends SettingsEntity
         return [
             'title' => [
                 'label' => 'Admin.Site Hero Title',
+                'rules' => ['max_length[255]', 'required']
+            ],
+            'description' => [
+                'label' => 'Admin.Site Hero Description',
                 'rules' => ['max_length[255]', 'required']
             ],
             'background_image' => [

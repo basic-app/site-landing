@@ -15,5 +15,6 @@ return [
     'Site Services Content (HTML)' => 'Content (HTML)',
     'Site Hero' => 'Hero',
     'Site Hero Title' => 'Title',
+    'Site Hero Description' => 'Description',
     'Site Hero Background Image' => 'Background Image'
 ];

@@ -25,6 +25,15 @@ helper(['form']);
     ]
 ]);?>
 
+<?= view_cell('AdminInput', [
+    'label' => $labels['description'] ?? 'description',
+    'error' => $errors['description'] ?? null,
+    'attributes' => [
+        'name' => 'description',
+        'value' => set_value('description', $data->description)
+    ]
+]);?>
+
 <?= view_cell('AdminInputImage', [
     'label' => $labels['background_image'] ?? 'background_image',
     'error' => $errors['background_image'] ?? null,
