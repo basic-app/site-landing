@@ -19,11 +19,11 @@ class SiteServices extends SettingsEntity
         return [
             'title' => [
                 'label' => 'Admin.Site Services Title',
-                'rules' => ['max_length[255]', 'required']
+                'rules' => ['max_length[255]', 'permit_empty']
             ],
             'content_html' => [
                 'label' => 'Admin.Site Services Content (HTML)',
-                'rules' => ['max_length[65535]', 'required']
+                'rules' => ['max_length[65535]', 'permit_empty']
             ]
         ];
     }

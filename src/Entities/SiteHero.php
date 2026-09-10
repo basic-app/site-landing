@@ -22,11 +22,11 @@ class SiteHero extends SettingsEntity
         return [
             'title' => [
                 'label' => 'Admin.Site Hero Title',
-                'rules' => ['max_length[255]', 'required']
+                'rules' => ['max_length[255]', 'permit_empty']
             ],
             'description' => [
                 'label' => 'Admin.Site Hero Description',
-                'rules' => ['max_length[255]', 'required']
+                'rules' => ['max_length[255]', 'permit_empty']
             ],
             'background_image' => [
                 'label' => 'Admin.Site Hero Background Image',

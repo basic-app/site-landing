@@ -19,11 +19,11 @@ class SiteAbout extends SettingsEntity
         return [
             'title' => [
                 'label' => 'Admin.Site About Title',
-                'rules' => ['max_length[255]', 'required']
+                'rules' => ['max_length[255]', 'permit_empty']
             ],
             'content_html' => [
                 'label' => 'Admin.Site About Content (HTML)',
-                'rules' => ['max_length[65535]', 'required']
+                'rules' => ['max_length[65535]', 'permit_empty']
             ]
         ];
     }

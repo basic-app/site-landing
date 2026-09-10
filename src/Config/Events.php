@@ -9,20 +9,36 @@ use BasicApp\Admin\Events\AdminMenu;
 use BasicApp\Site\Events\SiteMenu;
 
 SiteMenu::on(static function(SiteMenu $event) : void {
-    $event->items['about'] = [
-        'label' => lang('Site.About'),
-        'url' => '#about'
-    ];
 
-    $event->items['services'] = [
-        'label' => lang('Site.Services'),
-        'url' => '#services'
-    ];
+    $settings = service('settings')->getMany([
+        'SiteAbout.title',
+        'SiteServices.title',
+        'SiteContactUs.title'
+    ]);
 
-    $event->items['contact'] = [
-        'label' => lang('Site.Contact Us'),
-        'url' => '#contact'
-    ];
+    if ($settings['SiteAbout.title'] ?? null)
+    {
+        $event->items['about'] = [
+            'label' => $settings['SiteAbout.title'],
+            'url' => '#about'
+        ];
+    }
+
+    if ($settings['SiteServices.title'] ?? null)
+    {
+        $event->items['services'] = [
+            'label' => $settings['SiteServices.title'],
+            'url' => '#services'
+        ];
+    }
+
+    if ($settings['SiteContactUs.title'] ?? null)
+    {
+        $event->items['contact'] = [
+            'label' => $settings['SiteContactUs.title'],
+            'url' => '#contact'
+        ];
+    }
 });
 
 AdminMenu::on(static function(AdminMenu $event) : void {
