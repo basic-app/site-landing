@@ -7,62 +7,30 @@ namespace BasicApp\SiteLanding\Config;
 
 use BasicApp\Admin\Events\AdminMenu;
 use BasicApp\Site\Events\SiteMenu;
+use BasicApp\Block\Models\Blocks;
 
 SiteMenu::on(static function(SiteMenu $event) : void {
 
-    $settings = service('settings')->getMany([
-        'SiteAbout.title',
-        'SiteServices.title',
-        'SiteContactUs.title'
-    ]);
+    $blocksModel = model(Blocks::class);
 
-    if ($settings['SiteAbout.title'] ?? null)
-    {
-        $event->items['about'] = [
-            'label' => $settings['SiteAbout.title'],
-            'url' => '#about'
-        ];
-    }
+    $blocks = $blocksModel
+        ->where('block_active', 1)
+        ->orderBy('block_sort', 'ASC')
+        ->findAll();
 
-    if ($settings['SiteServices.title'] ?? null)
+    foreach($blocks as $block)
     {
-        $event->items['services'] = [
-            'label' => $settings['SiteServices.title'],
-            'url' => '#services'
-        ];
-    }
-
-    if ($settings['SiteContactUs.title'] ?? null)
-    {
-        $event->items['contact'] = [
-            'label' => $settings['SiteContactUs.title'],
-            'url' => '#contact'
+        $event->items[$block->block_uid] = [
+            'label' => $block->block_name,
+            'url' => '#' . $block->block_uid
         ];
     }
 });
 
 AdminMenu::on(static function(AdminMenu $event) : void {
-    $event->items[lang('Admin.Cells')]['site-hero'] = [
+    $event->items['Cells']['site-hero'] = [
         'label' => lang('Admin.Site Hero'),
         'url' => site_url('admin/site-hero'),
         'icon' => 'fa-tv'
-    ];
-
-    $event->items[lang('Admin.Cells')]['site-about'] = [
-        'label' => lang('Admin.Site About'),
-        'url' => site_url('admin/site-about'),
-        'icon' => 'fa-circle-info'
-    ];
-
-    $event->items[lang('Admin.Cells')]['site-services'] = [
-        'label' => lang('Admin.Site Services'),
-        'url' => site_url('admin/site-services'),
-        'icon' => 'fa-list'
-    ];
-    
-    $event->items[lang('Admin.Cells')]['site-contact-us'] = [
-        'label' => lang('Admin.Site Contact Us'),
-        'url' => site_url('admin/site-contact-us'),
-        'icon' => 'fa-regular fa-envelope'
     ];
 });
