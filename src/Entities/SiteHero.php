@@ -7,9 +7,13 @@ namespace BasicApp\SiteLanding\Entities;
 
 use BasicApp\Core\SettingsEntity;
 use CodeIgniter\HTTP\Files\UploadedFile;
+use BasicApp\Core\Traits\UnlinkChanged;
+use BasicApp\Core\Traits\Upload;
 
 class SiteHero extends SettingsEntity
 {
+    use Upload, UnlinkChanged;
+
     protected $attributes = [
         'title' => null,
         'description' => null,
@@ -43,6 +47,7 @@ class SiteHero extends SettingsEntity
         if ($image->isValid())
         {
             $this->background_image_path = $this->upload($image, 'uploads/site-hero');
+            
             $this->background_image_original_name = $image->getClientName();
         }
     }
@@ -52,13 +57,14 @@ class SiteHero extends SettingsEntity
         if ($value == 1)
         {
             $this->background_image_path = null;
+
             $this->background_image_original_name = null;
         }
     }
 
-    public function save(?string $class = null) : bool
+    public function save(&$errors = null) : bool
     {
-        $return = parent::save($class);
+        $return = parent::save($errors);
 
         if ($return)
         {

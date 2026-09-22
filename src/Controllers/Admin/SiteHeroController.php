@@ -5,10 +5,10 @@
  */
 namespace BasicApp\SiteLanding\Controllers\Admin;
 
-use App\Controllers\Admin\BaseController;
+use App\Controllers\Admin\BaseResourcePresenter;
 use BasicApp\SiteLanding\Entities\SiteHero;
 
-class SiteHeroController extends BaseController
+class SiteHeroController extends BaseResourcePresenter
 {
     public function index()
     {
