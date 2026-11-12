@@ -3,10 +3,11 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "BasicApp\\SiteLanding\\" : "src/"
+            "BasicApp\\SiteLanding\\" : "src"
         }
     },
     "require": {
-        "basic-app/module-block": "*"
+        "basic-app/module-block": "*",
+        "basic-app/settings": "*"
     }
 }

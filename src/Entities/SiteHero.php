@@ -5,7 +5,7 @@
  */
 namespace BasicApp\SiteLanding\Entities;
 
-use BasicApp\Core\SettingsEntity;
+use BasicApp\Settings\SettingsEntity;
 use CodeIgniter\HTTP\Files\UploadedFile;
 use BasicApp\Core\Traits\UnlinkChanged;
 use BasicApp\Core\Traits\Upload;
