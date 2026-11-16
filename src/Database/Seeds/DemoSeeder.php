@@ -1,9 +1,11 @@
 <?php
+
 declare(strict_types=1);
 /**
  * @author Basic App Dev Team
  * @license MIT
  */
+
 namespace BasicApp\SiteLanding\Database\Seeds;
 
 use BasicApp\Core\Seeder;
@@ -48,10 +50,8 @@ class DemoSeeder extends Seeder
             'SiteSettings.copyright' => '@My Company {Y}'
         ]);
 
-        foreach($this->data as $table => $rows)
-        {
-            foreach($rows as $row)
-            {
+        foreach ($this->data as $table => $rows) {
+            foreach ($rows as $row) {
                 $this->db->table($table)->insertBatch($row);
             }
         }

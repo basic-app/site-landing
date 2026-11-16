@@ -1,9 +1,11 @@
 <?php
+
 declare(strict_types=1);
 /**
  * @author Basic App Dev Team
  * @license MIT
  */
+
 namespace BasicApp\SiteLanding\Controllers\Admin;
 
 use App\Controllers\Admin\BaseResourcePresenter;
@@ -13,12 +15,10 @@ class SiteHeroController extends BaseResourcePresenter
 {
     public function index()
     {
-        $entity = new SiteHero;
+        $entity = new SiteHero();
 
-        if ($this->request->is('post')) 
-        {
-            if ($this->validateData($this->request->getPost(), $entity->rules())) 
-            {
+        if ($this->request->is('post')) {
+            if ($this->validateData($this->request->getPost(), $entity->rules())) {
                 $entity->fill(array_merge($this->validator->getValidated(), [
                     'background_image' => $this->request->getFile('background_image')
                 ]));
@@ -26,11 +26,9 @@ class SiteHeroController extends BaseResourcePresenter
                 $entity->save();
 
                 $this->session->setFlashdata('success', lang($this->messageSaved));
-                    
+
                 return redirect()->to('admin/site-hero');
-            }
-            else
-            {
+            } else {
                 $errors = $this->validator->getErrors();
             }
         }

@@ -1,9 +1,11 @@
 <?php
+
 declare(strict_types=1);
 /**
  * @author Basic App Dev Team
  * @license MIT
  */
+
 namespace BasicApp\SiteLanding\Entities;
 
 use BasicApp\Settings\SettingsEntity;
@@ -13,7 +15,8 @@ use BasicApp\Core\Traits\Upload;
 
 class SiteHero extends SettingsEntity
 {
-    use Upload, UnlinkChanged;
+    use Upload;
+    use UnlinkChanged;
 
     protected $attributes = [
         'title' => null,
@@ -22,7 +25,7 @@ class SiteHero extends SettingsEntity
         'background_image_original_name' => null
     ];
 
-    public function rules() : array
+    public function rules(): array
     {
         return [
             'title' => [
@@ -45,30 +48,27 @@ class SiteHero extends SettingsEntity
 
     public function setBackgroundImage(UploadedFile $image)
     {
-        if ($image->isValid())
-        {
+        if ($image->isValid()) {
             $this->background_image_path = $this->upload($image, 'uploads/site-hero');
-            
+
             $this->background_image_original_name = $image->getClientName();
         }
     }
 
     public function setBackgroundImageClear($value)
     {
-        if ($value == 1)
-        {
+        if ($value == 1) {
             $this->background_image_path = null;
 
             $this->background_image_original_name = null;
         }
     }
 
-    public function save(&$errors = null) : bool
+    public function save(&$errors = null): bool
     {
         $return = parent::save($errors);
 
-        if ($return)
-        {
+        if ($return) {
             $this->unlinkChanged(['background_image_path']);
         }
 
