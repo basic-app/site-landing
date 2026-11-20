@@ -1,8 +1,14 @@
 <?php
+
 declare(strict_types=1);
+
 /**
  * @author Basic App Dev Team
  * @license MIT
+ * 
+ * @var BasicApp\SiteLanding\Entities\SiteHero $data
+ * @var array $errors
+ * @var array $labels
  */
 $this->setVar('title', lang('Admin.Cells') . ' / ' . lang('Admin.Site Hero'));
 $this->setVar('h1', lang('Admin.Cells'));
